@@ -28,12 +28,6 @@ kbuildsycoca6 --noincremental 2>/dev/null || true
 update-desktop-database ~/.local/share/applications 2>/dev/null || true
 ```
 
-## AUR
-
-```bash
-yay -S pixel-clean-gui-git
-```
-
 ## CLI
 
 ```bash
