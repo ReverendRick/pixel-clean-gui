@@ -19,9 +19,9 @@ cd pixel-clean-gui
 sudo pacman -S ddcutil gtk4 libadwaita python-gobject
 
 # 3. Install application files
-install -Dm755 pixel-clean-gui      ~/.local/bin/pixel-clean-gui
-install -Dm755 pixel-clean-gui-launcher ~/.local/bin/pixel-clean-gui-launcher
-install -Dm644 pixel-clean-gui.desktop /usr/share/applications/pixel-clean-gui.desktop
+sudo install -Dm755 pixel-clean-gui /usr/local/bin/pixel-clean-gui
+sudo install -Dm755 pixel-clean-gui-launcher /usr/local/bin/pixel-clean-gui-launcher
+sudo install -Dm644 pixel-clean-gui.desktop /usr/share/applications/pixel-clean-gui.desktop
 
 # 4. Refresh desktop database (KDE/GNOME)
 kbuildsycoca6 --noincremental 2>/dev/null || true

@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 export PYTHONPATH=/usr/lib/python3.14/site-packages
-exec "$HOME/.local/bin/pixel-clean-gui" "$@" 2>"$HOME/.local/state/pixel-clean-gui.log"
+exec pixel-clean-gui "$@" 2>"$HOME/.local/state/pixel-clean-gui.log"
