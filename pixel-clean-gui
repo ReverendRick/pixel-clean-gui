@@ -54,13 +54,14 @@ class PixelCleanApp(Adw.Application):
         self.cleaning = False
 
     def do_activate(self):
-        win = Adw.ApplicationWindow(application=self)
+        win = Gtk.ApplicationWindow(application=self)
         win.set_title("PG32UCDM Pixel Clean")
         win.set_default_size(400, 250)
 
-        # Header bar
+        # Header bar as titlebar for dragging
         header = Adw.HeaderBar()
         header.set_title_widget(Gtk.Label(label="Pixel Clean — ASUS PG32UCDM"))
+        win.set_titlebar(header)
 
         # Main content
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
@@ -89,18 +90,12 @@ class PixelCleanApp(Adw.Application):
         self.clean_btn.set_halign(Gtk.Align.CENTER)
         self.clean_btn.connect("clicked", self.on_clean_clicked)
 
-        # Close button
-        self.close_btn = Gtk.Button(label="Close")
-        self.close_btn.set_halign(Gtk.Align.CENTER)
-        self.close_btn.connect("clicked", lambda b: win.close())
-
         box.append(self.status_label)
         box.append(self.value_label)
         box.append(self.progress)
         box.append(self.clean_btn)
-        box.append(self.close_btn)
 
-        win.set_content(box)
+        win.set_child(box)
         win.present()
 
         # Initial detection
