@@ -1,0 +1,41 @@
+# Maintainer: masterblaster <masterblaster@enterprise>
+pkgname=pixel-clean-gui-git
+pkgver=0.1.6.r0.g$(git rev-parse --short HEAD)
+pkgrel=1
+pkgdesc="GTK4 GUI for triggering ASUS ROG Swift OLED PG32UCDM pixel cleaning via DDC/CI"
+arch=('any')
+url="https://github.com/ReverendRick/pixel-clean-gui"
+license=('MIT')
+depends=('ddcutil' 'gtk4' 'libadwaita' 'python-gobject')
+makedepends=('git')
+install='pixel-clean-gui-git.install'
+optdepends=()
+provides=('pixel-clean-gui')
+conflicts=('pixel-clean-gui')
+source=('git+https://github.com/ReverendRick/pixel-clean-gui.git')
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/${pkgname%-git}"
+  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+package() {
+  cd "$srcdir/${pkgname%-git}"
+  
+  # Install main application script
+  install -Dm755 pixel-clean-gui \
+    "$pkgdir/usr/local/bin/pixel-clean-gui"
+  
+  # Install launcher script
+  install -Dm755 pixel-clean-gui-launcher \
+    "$pkgdir/usr/local/bin/pixel-clean-gui-launcher"
+  
+  # Install desktop entry
+  install -Dm644 pixel-clean-gui.desktop \
+    "$pkgdir/usr/share/applications/pixel-clean-gui.desktop"
+  
+  # Install documentation
+  install -Dm644 README.md \
+    "$pkgdir/usr/share/doc/pixel-clean-gui/README.md"
+}
