@@ -11,19 +11,23 @@ GTK4 GUI for triggering the ASUS ROG Swift OLED PG32UCDM built-in pixel cleaning
 ## Install
 
 ```bash
-sudo -S -p '' pacman -S ddcutil gtk4 libadwaita python-gobject
+# 1. Install dependencies
+sudo pacman -S ddcutil gtk4 libadwaita python-gobject
+
+# 2. Install application files
+install -Dm755 pixel-clean-gui      ~/.local/bin/pixel-clean-gui
+install -Dm755 pixel-clean-gui-launcher ~/.local/bin/pixel-clean-gui-launcher
+install -Dm644 pixel-clean-gui.desktop /usr/share/applications/pixel-clean-gui.desktop
+
+# 3. Refresh desktop database (KDE/GNOME)
+kbuildsycoca6 --noincremental 2>/dev/null || true
+update-desktop-database ~/.local/share/applications 2>/dev/null || true
 ```
 
 ## CLI
 
 ```bash
 pixel-clean-gui
-```
-
-Or via the launcher wrapper:
-
-```bash
-/home/masterblaster/.local/bin/pixel-clean-gui-launcher
 ```
 
 ## Desktop Entry
