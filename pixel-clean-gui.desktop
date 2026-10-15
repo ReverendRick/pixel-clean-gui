@@ -2,7 +2,7 @@
 Type=Application
 Name=Pixel Clean (PG32UCDM)
 Comment=ASUS ROG Swift OLED Pixel Cleaning
-Exec=/home/masterblaster/.local/bin/pixel-clean-gui-launcher
+Exec=sh -c 'exec $HOME/.local/bin/pixel-clean-gui-launcher "$@"' -- %f
 Icon=preferences-color
 Terminal=false
 Categories=Utility;Monitor;
