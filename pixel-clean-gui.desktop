@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Pixel Clean (PG32UCDM)
+Comment=ASUS ROG Swift OLED Pixel Cleaning
+Exec=/home/masterblaster/.local/bin/pixel-clean-gui-launcher
+Icon=preferences-color
+Terminal=false
+Categories=Utility;Monitor;
+StartupNotify=false
+StartupWMClass=com.enterprise.pixelclean
+OnlyShowIn=KDE;
