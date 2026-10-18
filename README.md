@@ -1,4 +1,5 @@
 # PG32UCDM Pixel Clean
+I wanted the ability to triger the pixel clean function from my CachyOS gaming computer with KDE Plasma Desktop.
 
 GTK4 GUI for triggering the ASUS ROG Swift OLED PG32UCDM built-in pixel cleaning routine via DDC/CI.
 
